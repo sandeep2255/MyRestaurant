@@ -1,24 +1,35 @@
-import logo from './logo.svg';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
+import Navbar from './widgets/Navbar';
+import HomeDashboard from './home/Home';
+
+
 
 function App() {
+  useEffect(() => {
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+      const navbarHeight = navbar.offsetHeight;
+      console.log(`Navbar height is: ${navbarHeight}px`);
+      
+      const content = document.querySelector('.home-dashboard');
+      if (content) {
+        content.style.height = `calc(100vh - ${navbarHeight}px)`;
+        content.style.overflow = 'hidden'; 
+      }
+    }
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className='App'>
+        <Navbar/>
+        <Routes>
+        <Route path="/dashboard" element={<HomeDashboard />} />
+        </Routes>    
+      </div>
+    </Router>
+    
   );
 }
 

@@ -1,0 +1,122 @@
+/* App.css */
+
+/* General Layout Styles */
+.home-dashboard {
+    margin: 0 auto;
+    background-color: #F5F5DC;
+    overflow: hidden; /* Prevents vertical scrolling */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .carousel {
+    width: 100%; 
+    height: 500px;
+    overflow: hidden; 
+    position: relative;
+  }
+  
+  /* Image inside the carousel */
+  .carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+  }
+  
+  /* Dashboard Cards */
+  .dashboard-content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    background-color: #FAEBD7; /* AntiqueWhite for a soft, welcoming feel */
+    color: #4B0082; /* Indigo color for contrast and readability */
+    margin: 10px;
+    border-radius: 8px;
+    flex-basis: 30%;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    padding: 15px; /* Add padding for a more comfortable look */
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #2E0854; /* Darker purple for heading text */
+    font-family: 'Playfair Display', serif;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #4B0082; /* Matches main text color */
+    font-family: 'Playfair Display', serif;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    background-color: #F5DEB3; /* Light Wheat color on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover */
+}
+
+  
+  /* Media Queries for Responsiveness */
+  
+  /* For devices larger than 768px (tablets, laptops, desktops) */
+  @media (min-width: 768px) {
+    .home-dashboard {
+      /* padding: 40px; */
+    }
+  
+    .dashboard-content {
+      flex-wrap: nowrap;
+    }
+  
+    .card {
+      flex-basis: 22%;
+    }
+  }
+  
+  /* For smaller devices (tablets and below) */
+  @media (max-width: 768px) {
+    .carousel-image {
+      height: 300px;
+    }
+  
+    .dashboard-content {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .card {
+      flex-basis: 100%;
+      margin-bottom: 20px;
+    }
+  
+    .card h3 {
+      font-size: 1.2rem;
+    }
+  
+    .card p {
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* For very small devices (phones in portrait mode) */
+  @media (max-width: 480px) {
+    .carousel-image {
+      height: 250px;
+    }
+  
+    .dashboard-content {
+      padding: 10px;
+    }
+  
+    .card {
+      flex-basis: 100%;
+      margin-bottom: 15px;
+    }
+  }
+  
